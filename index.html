@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>💖 Untuk Kamu 💖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            font-family: 'Segoe UI', 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+            padding: 20px;
+        }
+        
+        /* Jatuhan hati */
+        .heart {
+            position: fixed;
+            font-size: 20px;
+            pointer-events: none;
+            animation: fall linear forwards;
+            z-index: 100;
+        }
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .container {
+            max-width: 550px;
+            width: 100%;
+            z-index: 10;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 60px;
+            padding: 40px 25px;
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+            border: 3px solid #FFD966;
+        }
+        
+        /* Animasi naga kuning gemas */
+        .dragon {
+            font-size: 130px;
+            animation: dragonMove 0.6s ease-in-out infinite;
+            display: inline-block;
+            cursor: pointer;
+            filter: drop-shadow(0 8px 15px rgba(0,0,0,0.2));
+        }
+        
+        @keyframes dragonMove {
+            0%, 100% { 
+                transform: translateY(0) rotate(0deg) scale(1);
+            }
+            25% {
+                transform: translateY(-12px) rotate(-5deg) scale(1.05);
+            }
+            50% {
+                transform: translateY(0) rotate(0deg) scale(1);
+            }
+            75% {
+                transform: translateY(6px) rotate(5deg) scale(0.98);
+            }
+        }
+        
+        /* Animasi gemas */
+        .dragon-cute {
+            animation: cuteWiggle 0.4s ease-in-out infinite;
+        }
+        
+        @keyframes cuteWiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-8deg); }
+            75% { transform: rotate(8deg); }
+        }
+        
+        .dragon-text {
+            font-size: 0.9em;
+            color: #FFB347;
+            margin-top: 8px;
+            font-weight: bold;
+            animation: blinkText 1s infinite;
+        }
+        
+        @keyframes blinkText {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+        
+        .question {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin: 20px 0 30px;
+            line-height: 1.3;
+            background: #fff0f5;
+            padding: 15px;
+            border-radius: 50px;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            align-items: center;
+            position: relative;
+        }
+        
+        .btn-yes {
+            background: linear-gradient(135deg, #FFB347, #FF8C42);
+            border: none;
+            color: white;
+            padding: 15px 45px;
+            font-size: 1.4em;
+            border-radius: 60px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(255,140,66,0.4);
+            transition: all 0.2s;
+            min-width: 130px;
+        }
+        
+        .btn-no {
+            background: linear-gradient(135deg, #aaa, #888);
+            border: none;
+            color: white;
+            padding: 15px 45px;
+            font-size: 1.3em;
+            border-radius: 60px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s;
+            min-width: 110px;
+        }
+        
+        .result {
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 50px;
+            background: #fff0f5;
+            display: none;
+        }
+        
+        .result.show {
+            display: block;
+            animation: slideUp 0.5s ease;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .result h2 {
+            color: #FF8C42;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .result p {
+            color: #555;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+        
+        .heart-big {
+            font-size: 60px;
+            animation: heartbeat 0.8s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        .footer {
+            margin-top: 25px;
+            color: #aaa;
+            font-size: 0.7em;
+        }
+        
+        .tiktok-tag {
+            margin-top: 15px;
+            color: #ff6b6b;
+            font-size: 0.8em;
+            opacity: 0.6;
+        }
+        
+        /* Efek kilap di naga */
+        .glow {
+            animation: glowEffect 0.8s ease-in-out infinite;
+        }
+        
+        @keyframes glowEffect {
+            0%, 100% { text-shadow: 0 0 5px #FFD966; }
+            50% { text-shadow: 0 0 20px #FFB347, 0 0 10px #FFD966; }
+        }
+        
+        @media (max-width: 480px) {
+            .card { padding: 30px 20px; }
+            .question { font-size: 1.4em; }
+            .btn-yes { padding: 12px 35px; font-size: 1.2em; }
+            .btn-no { padding: 12px 35px; font-size: 1.1em; }
+            .dragon { font-size: 90px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="dragon" id="dragon">🐉💛</div>
+            <div class="dragon-text" id="dragonText">*naga kuning gemas nunggu jawaban* 🥺</div>
+            
+            <div class="question">
+                Maukah kamu<br>jadi pacarku? 💖
+            </div>
+            
+            <div class="buttons">
+                <button class="btn-yes" id="yesBtn" onclick="answerYes()">Yes 💛</button>
+                <button class="btn-no" id="noBtn" onclick="answerNo()">No</button>
+            </div>
+            
+            <div class="result" id="result">
+                <div class="heart-big">💛💖💛</div>
+                <h2>YEAYYY! 💕</h2>
+                <p>🐉 Makasih sayang! 🥰<br>Naga kuning gemas ikut seneng! 💛</p>
+                <div class="heart-big">🐉💖🥺</div>
+            </div>
+            
+            <div class="footer">
+                💛 Pilih jawabanmu 💛
+            </div>
+            <div class="tiktok-tag">
+                🎵 naga kuning gemas 🐉💛
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let noClickCount = 0;
+        let noButton = document.getElementById('noBtn');
+        let yesButton = document.getElementById('yesBtn');
+        let resultDiv = document.getElementById('result');
+        let dragon = document.getElementById('dragon');
+        let dragonText = document.getElementById('dragonText');
+        
+        let yesSize = 1;
+        
+        // Ekspresi naga kuning gemas makin sedih
+        const dragonFaces = [
+            { face: "🐉💛", text: "*naga gemas nunggu YES* 🥺" },
+            { face: "🐉😢", text: "*naga sedih* jangan NO dong..." },
+            { face: "🐉🥹", text: "*naga meringis* please YES..." },
+            { face: "🐉😭", text: "*naga nangis* aku sedih..." },
+            { face: "🐉💔", text: "*naga patah hati* YES aja..." },
+            { face: "🐉😫", text: "*naga putus asa* masih NO aja..." },
+            { face: "🐉🥺👉👈", text: "*naga malu-malu* YES aku sayang..." },
+            { face: "🐉💖🥺", text: "*naga gemes* udah YES aja!" }
+        ];
+        
+        function answerYes() {
+            document.querySelector('.buttons').style.display = 'none';
+            document.querySelector('.question').style.display = 'none';
+            dragon.style.display = 'none';
+            dragonText.style.display = 'none';
+            
+            resultDiv.classList.add('show');
+            createConfetti(200);
+            startHearts();
+            
+            if (navigator.vibrate) {
+                navigator.vibrate([200, 100, 200, 100, 300]);
+            }
+            
+            setTimeout(() => {
+                alert('💖 MAKASIH SAYANG! 💖\n\nNaga kuning gemas ikut senang! 🐉💛');
+            }, 500);
+        }
+        
+        function answerNo() {
+            noClickCount++;
+            
+            let faceIndex = Math.min(noClickCount - 1, dragonFaces.length - 1);
+            dragon.innerHTML = dragonFaces[faceIndex].face;
+            dragonText.innerHTML = dragonFaces[faceIndex].text;
+            
+            // Naga makin gemas geraknya
+            dragon.style.animation = 'dragonMove 0.3s ease-in-out infinite, cuteWiggle 0.2s infinite';
+            
+            // YES membesar
+            yesSize += 0.35;
+            yesButton.style.transform = `scale(${yesSize})`;
+            yesButton.style.padding = `${15 * yesSize}px ${45 * yesSize}px`;
+            yesButton.style.fontSize = `${1.4 * yesSize}em`;
+            
+            // NO mengecil dan kabur
+            let noSize = Math.max(0.5, 1 - (noClickCount * 0.15));
+            noButton.style.transform = `scale(${noSize})`;
+            noButton.style.opacity = noSize;
+            
+            let randomX = (Math.random() - 0.5) * 40;
+            let randomY = (Math.random() - 0.5) * 40;
+            noButton.style.transform += ` translate(${randomX}px, ${randomY}px)`;
+            
+            createMiniHeart();
+            
+            if (noClickCount >= 7) {
+                yesButton.style.transform = `scale(4)`;
+                setTimeout(() => {
+                    alert("💖 Udah deh, kamu harus YES! 💖\n\nNaga kuning gemas minta YES! 🐉💛");
+                }, 200);
+            }
+            
+            if (noClickCount >= 10) {
+                answerYes();
+            }
+        }
+        
+        function createMiniHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '💛';
+            heart.style.position = 'fixed';
+            heart.style.left = (Math.random() * window.innerWidth) + 'px';
+            heart.style.bottom = '20px';
+            heart.style.fontSize = (20 + Math.random() * 30) + 'px';
+            heart.style.zIndex = '999';
+            heart.style.pointerEvents = 'none';
+            heart.style.animation = 'flyUp 1s ease-out forwards';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 1000);
+        }
+        
+        const flyStyle = document.createElement('style');
+        flyStyle.textContent = `
+            @keyframes flyUp {
+                0% { opacity: 1; transform: translateY(0); }
+                100% { opacity: 0; transform: translateY(-100px); }
+            }
+        `;
+        document.head.appendChild(flyStyle);
+        
+        function createConfetti(count) {
+            for(let i = 0; i < count; i++) {
+                const confetti = document.createElement('div');
+                const icons = ['💛', '💖', '💕', '💗', '🐉', '✨', '🥰', '💛💖'];
+                confetti.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+                confetti.style.position = 'fixed';
+                confetti.style.left = Math.random() * window.innerWidth + 'px';
+                confetti.style.top = '-20px';
+                confetti.style.fontSize = (15 + Math.random() * 25) + 'px';
+                confetti.style.zIndex = '9999';
+                confetti.style.pointerEvents = 'none';
+                confetti.style.animation = `fallConfetti ${1 + Math.random() * 2}s linear forwards`;
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 3000);
+            }
+        }
+        
+        const confettiStyle = document.createElement('style');
+        confettiStyle.textContent = `
+            @keyframes fallConfetti {
+                0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+                100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(confettiStyle);
+        
+        let heartInterval;
+        
+        function startHearts() {
+            if (heartInterval) clearInterval(heartInterval);
+            heartInterval = setInterval(() => {
+                createFallingHeart();
+            }, 150);
+            setTimeout(() => {
+                if (heartInterval) clearInterval(heartInterval);
+            }, 10000);
+        }
+        
+        function createFallingHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            const hearts = ['💛', '💖', '💕', '💗', '💓', '💝', '💘'];
+            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.fontSize = (15 + Math.random() * 30) + 'px';
+            heart.style.animationDuration = 2 + Math.random() * 3 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+        
+        setInterval(() => {
+            createFallingHeart();
+        }, 800);
+        
+        setTimeout(() => {
+            const div = document.createElement('div');
+            div.textContent = "🐉 Naga kuning gemas nunggu jawabanmu... 💛";
+            div.style.position = 'fixed';
+            div.style.left = '50%';
+            div.style.top = '40%';
+            div.style.transform = 'translateX(-50%)';
+            div.style.backgroundColor = '#FFD966';
+            div.style.color = '#b45f06';
+            div.style.padding = '12px 25px';
+            div.style.borderRadius = '50px';
+            div.style.fontWeight = 'bold';
+            div.style.zIndex = '1000';
+            div.style.animation = 'floatMessage 2s ease-out forwards';
+            document.body.appendChild(div);
+            setTimeout(() => div.remove(), 2000);
+        }, 1000);
+        
+        const msgStyle = document.createElement('style');
+        msgStyle.textContent = `
+            @keyframes floatMessage {
+                0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+                100% { opacity: 0; transform: translateX(-50%) translateY(-80px); }
+            }
+        `;
+        document.head.appendChild(msgStyle);
+        
+        // Efek kilap buat naga
+        setInterval(() => {
+            dragon.classList.add('glow');
+            setTimeout(() => dragon.classList.remove('glow'), 500);
+        }, 1500);
+    </script>
+</body>
+</html>
